@@ -1,0 +1,31 @@
+From 0b1cc075132bc1f200ae726a22998dd2c0d90941 Mon Sep 17 00:00:00 2001
+From: KATOH Yasufumi <karma@jazz.email.ne.jp>
+Date: Mon, 18 Nov 2019 09:21:47 +0000
+Subject: [PATCH] Fix build with gcc 7.x
+
+---
+ server-tools/instance-manager/instance_map.cc | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/server-tools/instance-manager/instance_map.cc b/server-tools/instance-manager/instance_map.cc
+index aaa16e0..4e28935 100644
+--- a/server-tools/instance-manager/instance_map.cc
++++ b/server-tools/instance-manager/instance_map.cc
+@@ -526,12 +526,12 @@ int Instance_map::load()
+              Options::Main::config_file);
+ 
+     argv_options[1]= defaults_file_arg;
+-    argv_options[2]= '\0';
++    argv_options[2]= NULL;
+ 
+     argc= 2;
+   }
+   else
+-    argv_options[1]= '\0';
++    argv_options[1]= NULL;
+ 
+   /*
+     If the routine failed, we'll simply fallback to defaults in
+-- 
+2.18.1
+

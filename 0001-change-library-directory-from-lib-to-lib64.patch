@@ -1,0 +1,25 @@
+From 3fde48364bedd138a5ad47af3e52fc2f33486b08 Mon Sep 17 00:00:00 2001
+From: KATOH Yasufumi <karma@jazz.email.ne.jp>
+Date: Fri, 15 Nov 2019 08:39:56 +0000
+Subject: [PATCH] Tweak lib dir
+
+---
+ config/ac-macros/ssl.m4 | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/config/ac-macros/ssl.m4 b/config/ac-macros/ssl.m4
+index d2f4269..bf2c0a4 100644
+--- a/config/ac-macros/ssl.m4
++++ b/config/ac-macros/ssl.m4
+@@ -113,7 +113,7 @@ AC_DEFUN([MYSQL_FIND_OPENSSL], [
+   #
+   if test "$location" != "/usr"
+   then
+-    openssl_libs="-L$location/lib/ -lssl -lcrypto"
++    openssl_libs="-L$location/lib64/ -lssl -lcrypto"
+   else
+     openssl_libs="-lssl -lcrypto"
+   fi
+-- 
+2.18.1
+

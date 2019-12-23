@@ -1,0 +1,25 @@
+From 53ae2cff34d4103cfe8160e63b8ff24cb5fa951a Mon Sep 17 00:00:00 2001
+From: KATOH Yasufumi <karma@jazz.email.ne.jp>
+Date: Mon, 18 Nov 2019 08:56:41 +0000
+Subject: [PATCH] Fix build issue for gcc 8.x
+
+---
+ server-tools/instance-manager/protocol.cc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/server-tools/instance-manager/protocol.cc b/server-tools/instance-manager/protocol.cc
+index e9a2f49..c6df751 100644
+--- a/server-tools/instance-manager/protocol.cc
++++ b/server-tools/instance-manager/protocol.cc
+@@ -24,7 +24,7 @@
+ #include <m_string.h>
+ 
+ 
+-static uchar eof_buff[1]= { (char) 254 }; /* Marker for end of fields */
++static uchar eof_buff[1]= { (uchar) 254 }; /* Marker for end of fields */
+ static const char ERROR_PACKET_CODE= (char) 255;
+ 
+ 
+-- 
+2.18.1
+
